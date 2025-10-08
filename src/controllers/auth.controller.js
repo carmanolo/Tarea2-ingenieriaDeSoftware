@@ -29,8 +29,6 @@ export async function register(req, res) {
     const { error } = registerValidation.validate(req.body);
     if (error) return res.status(400).json({ message: error.message });
 
-    if (existingEmailUser)
-      return res.status(409).json({ message: "Correo ya registrado." });
     
     const newUser = await createUser(data);
     delete newUser.password; // Nunca devolver la contraseña
