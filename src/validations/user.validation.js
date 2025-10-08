@@ -12,7 +12,6 @@ const domainEmailValidator = (value, helpers) => {
 
 export const registerValidation = Joi.object({
   
-  id: Joi.number().integer().min(1).required(),
   email: Joi.string()
     .email()
     .required()
